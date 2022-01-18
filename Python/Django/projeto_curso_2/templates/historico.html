@@ -1,0 +1,20 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+    <div class="blocoDeCodigo">
+    <fieldset class="lembretes" style="color:black">
+                <legend><b>Lembretes já vencidos</b></legend>
+                <a href="/agenda/" style="text-decoration:none">
+                    <button type="button" class="botoes">Voltar</button></a>
+                {% for evento in eventos %}
+                    {% if evento.get_evento_atrasado %}
+                        <br>
+                        <li>{{ evento.titulo }} - {{ evento.get_data_evento }}: {{ evento.descicao }}</li><!-o evento/?id={{ evento.id }} serve para passar no get da url o id do evento que queremos para poder altera-lo->
+                        <button type="button" class="botoes"><a style="text-decoration:none" href="/historico/delete/{{ evento.id }}/">Excluir</a></button>
+                    {% endif %}
+                {% endfor %}
+    </fieldset>
+    </div>
+{% endblock %}

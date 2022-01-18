@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Dados do usuário</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+</head>
+<body>
+<form action="submit" method="POST" class="logins"> {% csrf_token %}
+            <div class="cadastrar">
+                <fieldset class="Pfildsets">
+                    <legend><b><h1>Dados do usuário</h1></b></legend>
+                    <label><b>Nome:</b></label>
+                    <br>
+                    <input type="text" name="nome" class="textos" value="{{ user.username }}">
+                    <br>
+                    <label><b>Email:</b></label>
+                    <br>
+                    <input type="email" name="email" class="textos" value="{{ user.email }}">
+                    <br>
+                    <label><b>Senha:</b></label>
+                    <br>
+                    <input type="text" size="30" name="senha" class="textos" value="">
+                    <br>
+                    <button type="submit" class="botoes">Recadastrar</button>
+                    <a href="/agenda/" >
+                        <button type="button" class="botoes">Voltar</button>
+                    </a>
+                    <br>
+                </fieldset>
+            </div>
+    </form>
+</body>
+</html>

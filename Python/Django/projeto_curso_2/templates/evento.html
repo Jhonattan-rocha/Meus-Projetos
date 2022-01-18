@@ -1,0 +1,37 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <div class="blocoDeCodigo">
+        <br>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+        <form class="blocoDeCodigoAd" action="submit" method="POST"> {% csrf_token %}
+            <fieldset class="Pfildsets">
+            <legend>Cadastrar lembrete</legend>
+            <label>Título</label>
+            <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
+            <br>
+            <input align="left" type="text" name="titulo" size="22" value="{{ evento.titulo }}" class="textos"/>
+            <br>
+            <br>
+            <label>Data do evento</label>
+            <br>
+            <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}" class="textos"/>
+            <br>
+            <br>
+            <label>Descrição</label>
+            <br>
+            <textarea name="descricao" rows="5" cols="22" class="descricao">{{ evento.descicao }}</textarea>
+            <br>
+            <br>
+                <button type="submit" name="salvar" class="botoes"><b>Salvar</b></button>
+            <a href="/">
+                <button type="button" name="cancelar" class="botoes"><b>Cancelar</b></button>
+            </a>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+
+    </script>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+</head>
+<body>
+    <form action="submit" method="POST" class="logins"> {% csrf_token %}
+            <div class="cadastrar">
+                <fieldset class="Pfildsets">
+                    <legend><b><h1>Cadastrar-se</h1></b></legend>
+                    <label><b>Nome:</b></label>
+                    <br>
+                    <input type="text" name="usernameC" class="textos">
+                    <br>
+                    <label><b>Email</b></label>
+                    <br>
+                    <input type="email" name="email" class="textos">
+                    <br>
+                    <label><b>Senha</b></label>
+                    <br>
+                    <input type="password" name="passwordC" class="textos">
+                    <br>
+                    <button type="submit" class="botoes">Cadastrar</button>
+                    <a href="/login/" >
+                        <button type="button" class="botoes">Voltar</button>
+                    </a>
+                    <br>
+                </fieldset>
+                {% for message in messages %}
+                <div align="left">
+                <strong>Error</strong> {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+    </form>
+</body>
+</html>

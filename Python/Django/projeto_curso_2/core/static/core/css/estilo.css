@@ -1,0 +1,169 @@
+.blocoDeCodigo{
+  text-align: justify;
+  background-color: rgb(248, 248, 248);
+  position:absolute;
+  height: 500px;
+  min-height: 500px;
+  width: 560px;
+  min-width: 560px;
+  left: 480px;
+  top: 190px;
+  border-radius: 20px;
+  border: 7px solid black;
+}
+
+.classes{
+  text-align: justify;
+  background-color: rgb(248, 248, 248);
+  position:absolute;
+  height: 230px;
+  min-height: 230px;
+  width: 460px;
+  min-width: 460px;
+  top: 100px;
+  border-radius: 20px;
+  border: 7px solid black;
+}
+
+.lembretesforuser{
+  border-radius: 20px;
+  position:absolute;
+  height: 150px;  
+  min-height: 150px;
+  width: 390px;
+  top: 20px;
+  left: 20px;
+  overflow: auto;
+}
+
+.mensagem{
+  position: absolute;
+  left: 100px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.historico{
+  position: absolute;
+  top: 167px;
+  left: 760px;
+}
+
+.testesdefs{
+  position: absolute;
+  top: 167px;
+  left: 890px;
+}
+
+.lembretes{
+  border-radius: 20px;
+  position:absolute;
+  height: 430px;  
+  min-height: 430px;
+  width: 490px;
+  top: 20px;
+  left: 20px;
+  overflow: auto;
+}
+
+.logins{
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  left: 100px;
+}
+
+.cadastrar{
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  left: 300px;
+  top: 10px;
+}
+
+.conta{
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 167px;
+  left: 670px;
+}
+
+.body{
+  text-align: justify;
+  background-color: rgb(248, 248, 248);
+  font-size: 20px;
+  position:absolute;
+  height: 300px;
+  width: 350px;
+  right: 30px;
+  top: 50px;
+  border: 7px solid white;
+}
+
+.Pfildsets{
+  border-radius: 10px;
+}
+
+.blocoDeCodigoAd{
+  text-align: justify;
+  background-color: rgb(248, 248, 248);
+  font-size: 20px;
+  position:absolute;
+  height: 350px;
+  width: 300px;
+  left: 20px;
+  top: 20px;
+}
+
+.textos{
+  border-top: white solid 1px;
+  border-left: white solid 1px;
+  border-right: white solid 1px; 
+}
+
+.descricao{
+  border: black solid 1px;
+  border-radius: 10px
+}
+
+.botoes{
+  border: solid black 2px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: bold;
+  background-color: darkgrey;
+}
+
+.rodape{
+  position: absolute;
+  font-size: 40px;
+  height: 300;
+  width: 1000;
+  top: 670px;
+  left: 550px;
+}
+
+.cabeçalho{
+  position: absolute; 
+  left: 700px;
+  top: 80px;
+  font-size: 20px;
+}
+
+.sair{
+  position: absolute; 
+  left: 628px;
+  top: 164px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 0px solid white;
+}
+
+.novo{
+  position: absolute; 
+  left: 498px;
+  top: 164px;
+  font-size: 20px;
+  border-radius: 20px;
+}

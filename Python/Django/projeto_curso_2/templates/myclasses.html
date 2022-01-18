@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste</title>
+    <h1>Teste de defs</h1>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+</head>
+<body>
+    <a href="/agenda/"><button type="button" class="botoes">Voltar</button></a>
+    <div class="classes">
+        <form action="submit" method="POST"> {% csrf_token %}
+            <fieldset class="lembretesforuser">
+                <legend><b>Defs</b></legend>
+                <label>Digite algo: </label>
+                <input type="text" class="textos" name="insertdados" value="10"><br><br>
+                <label>Retorno:</label>
+                <textarea class="descricao" name="returndados" value="">{% for def in defs %} dados {% endfor %}</textarea><br><br>
+                <a href="submit">
+                    <button type="button" class="botoes">Calcular</button>
+                </a>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+    <div class="mensagem"><h1><b>BEM VINDO(a), {{ user.username }}.</b></h1></div>
+    <div class="novo">
+        <a href="{% if request == evento %} /evento {% else %} /agenda/evento/ {% endif %}">
+            <button type="button" class="botoes">Adicionar lembrete</button>
+        </a>
+        </div>
+    <div class="cabeçalho">
+        <title>Agenda</title>
+        <h1>Agenda</h1>
+    </div>
+    <div align="center" class="sair">
+            <a href="/logout"><button class="botoes" type="button">Sair</button></a>
+    </div>
+    <div class="conta">
+        <a href="/agenda/dados/" >
+            <button type="button" class="botoes">Seus dados</button>
+        </a>
+    </div>
+    <div class="historico">
+        <a href="/historico" style="text-decoration:none">
+            <button type="button" class="botoes">Eventos atrasados</button>
+        </a>
+    </div>
+    <div class="testesdefs">
+        <a href="/agenda/teste/">
+            <button type="button" class="botoes">Testes de defs</button>
+        </a>
+    </div>

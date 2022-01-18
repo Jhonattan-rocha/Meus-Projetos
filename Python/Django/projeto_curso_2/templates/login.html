@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css'%}" type="text/css">
+</head>
+<body>
+    <div align="middle">
+        <br>
+        <br>
+    </div>
+    <form action="submit" method="post"> {% csrf_token %} <!–esse forms faz a ação do botão, e esse comando action faz ele concatenar o que estiver entre aspas com a URL do site->
+        <div class="logins"><!-para medididas de cegurança, precisa ter essa tag de token em arquivos que realizem um POST->
+            <br>
+            <fieldset class="Pfildsets">
+                <legend><h1><b>Login</b></h1></legend>
+            <label><b>Usuário:</b></label>
+            <br>
+            <input type="text" name="username" class="textos">
+            <br>
+            <label><b>Password:</b></label>
+            <br>
+            <input type="password" name="password" class="textos">
+            <br>
+            <br>
+            {% for message in messages %}
+                <div align="left">
+                <strong>Error</strong> {{ message }}
+                </div>
+            {% endfor %}
+                <button type="submit" class="botoes">Entrar</button>
+            <br>
+            <a href="cadastro/">
+               <button type="button" class="botoes">Cadastre-se</button>
+            </a>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>
