@@ -1,3 +1,5 @@
+import re
+
 # python é uma linguagens de tipagem dinâmica
 # caractere de escaoe, exemplo: "\
 # qualquer dado vazio retornam false caso faça um casting para bool, e retorna true se não for vazio
@@ -17,19 +19,19 @@ if not b:
 
 print("teste".__len__())  # funciona igual ao len()
 
-import re
+
 
 
 def is_float(val):
     if isinstance(val, float): return True
-    if re.search(r'^\-{,1}[0-9]+\.{1}[0-9]+$', val): return True
+    if re.search(r'^?[0-9]+\.{1}[0-9]+$', val): return True
 
     return False
 
 
 def is_int(val):
     if isinstance(val, int): return True
-    if re.search(r'^\-{,1}[0-9]+$', val): return True
+    if re.search(r'^?[0-9]+$', val): return True
 
     return False
 
@@ -58,3 +60,7 @@ formatando valores:
 """
 
 print(f"{1:0>10}")
+var = 'as'
+print(f"{var:#^50}")
+
+print()
