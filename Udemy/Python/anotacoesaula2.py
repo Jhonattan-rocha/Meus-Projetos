@@ -14,3 +14,47 @@ if not b:
     print(b)
 
 # essa expressão é usada para saber se tem um valor na variável, o 0 e "" é considerado false, qualquer outra coisa, true
+
+print("teste".__len__())  # funciona igual ao len()
+
+import re
+
+
+def is_float(val):
+    if isinstance(val, float): return True
+    if re.search(r'^\-{,1}[0-9]+\.{1}[0-9]+$', val): return True
+
+    return False
+
+
+def is_int(val):
+    if isinstance(val, int): return True
+    if re.search(r'^\-{,1}[0-9]+$', val): return True
+
+    return False
+
+
+def is_number(val):
+    return is_int(val) or is_float(val)
+
+
+# essas defs o professor disponibilizou para contornar o problema dos metodos que já vem no python
+# isdecimal é uma função que checa com mais abrangencia uma string, pois o isnumeric retorna false se for menor que zero
+# isdecimal não verifica ponto flutuante
+
+"""
+formatando valores:
+
+:s - strings
+:d - int
+:f - float
+:(numero)f - limita as casas decimais
+:(caractere)(> ou < or ^)(Quantidade)(tipo - s, d, f)
+
+> - esquerda
+< - direita
+^ - centro
+
+"""
+
+print(f"{1:0>10}")
