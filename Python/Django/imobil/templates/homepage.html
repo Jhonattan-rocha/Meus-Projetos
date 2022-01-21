@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}" type='text/css'>
+{% endblock %}
+{% block 'titulo' %}Home page{% endblock %}
+{% block 'body' %}
+<div style="text-align: center" class="container">
+    <div style="text-align: justify">
+        <h3 class="titulo_especificacao" style='text-align: center;'>Sobre nós</h3>
+        <p class="texto_introducao">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Eius asperiores tempora debitis voluptatibus quaerat, perspiciatis illum veniam minus. 
+            Velit, odio nihil officia quisquam earum quos ducimus. 
+            Ex cupiditate adipisci sunt.Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Eius asperiores tempora debitis voluptatibus quaerat, perspiciatis illum veniam minus. 
+            Velit, odio nihil officia quisquam earum quos ducimus. 
+            Ex cupiditate adipisci sunt.Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Eius asperiores tempora debitis voluptatibus quaerat, perspiciatis illum veniam minus. Velit, odio nihil officia 
+            quisquam earum quos ducimus. Ex cupiditate adipisci sunt.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius asperiores 
+            tempora debitis voluptatibus quaerat, perspiciatis illum veniam minus. Velit, odio nihil officia quisquam earum quos ducimus. 
+            Ex cupiditate adipisci sunt.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius asperiores tempora debitis voluptatibus 
+            quaerat, perspiciatis illum veniam minus. Velit, odio nihil officia quisquam earum quos ducimus. Ex cupiditate adipisci sunt.Lorem 
+            ipsum dolor sit amet consectetur, adipisicing elit. Eius asperiores tempora debitis voluptatibus quaerat, perspiciatis illum veniam 
+            minus. Velit, odio nihil officia quisquam earum quos ducimus. Ex cupiditate adipisci sunt.Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Eius asperiores tempora debitis voluptatibus quaerat, perspiciatis illum veniam minus. Velit, odio nihil officia 
+            quisquam earum quos ducimus. Ex cupiditate adipisci sunt.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius asperiores 
+            tempora debitis voluptatibus quaerat, perspiciatis illum veniam minus. Velit, odio nihil officia quisquam earum quos ducimus.
+        </p>
+    </div>
+    <div class='imgesf' style="text-align: justify">
+        <h3 class="titulo_especificacao" style='text-align: center;'>Nossas instalações</h3>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id='imgesf'>
+                {% for imgi in imoveis_nossos.all %}
+                <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                    <img class="d-block w-100" src="{{imgi}}" alt="First slide">
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="div_possivel_interesse">
+        <h3 class="titulo_especificacao" style='text-align: center;'>Algumas opções para você</h3>
+        <div class="row">
+            {% for imovel in imoveis %}
+                <div class="col-md cont">
+                    <div class="card_imovel">
+                        <img class="img_capa_imovel" src="{{imovel.imagens.all.0.img.url}}">
+                        <div class="informacoes_imoveis">
+                            <a class="a_none" href="{% url 'imovel' imovel.id %}"><h4 class="valor">R$
+                                {{imovel.valor}}</h4></a>
+                            <p>{{imovel.rua}}, {{imovel.cidade}}</p>
+                            <br>
+                            <img width="7%" src="{% static 'plataforma/img/heart.png' %}">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'titulo' %}Cadastre-se{% endblock %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'autenti/css/cadastro.css' %}" type="text/css">
+{% endblock %}
+{% block 'body' %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 sidebar">
+            <div class="logo_sidebar">
+                <h2 class="logo">
+                    <img class="img_logo_sidebar" src="{% static 'autenti/img/logo.png' %}">IMOBI
+                </h2>
+            </div>
+            <div class="corpo_sidebar">
+                <div>
+                    <h2 class="titulo cor_branca">Cadastre-se</h2>
+                </div>
+                <div>
+                    <p class="cor_branca descricao">As melhores casas</p>
+                    <p style="margin-top:-20px" class="cor_branca descricao">Nos melhores preços</p>
+                    <br>
+                    <br>                                <!--Colocando o name da url aqui, não precisa colocar o caminho própriamente dito-->
+                    <a class="btn_logar" href="{% url 'logar' %}">LOGAR</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="area_cadastrar">
+                                <!--aqui vc coloca a url que vai os dados-->
+                <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+                    <h2 class="titulo_area_cadastrar">Cadastre-se</h2>
+                    {% if messages %}
+                        {% for message in messages %}
+                                            <!--isso aqui concatena as tags das mensagens de bootstrap de forma dinâmica, mostrando automaticamente um css pré feito para mensagens-->
+                            <div class="alert {{message.tags}}">
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <br>
+                    <input name="username" class="input_cadastrar input_cadastrar_nome" type="text"
+                           placeholder="Username...">
+                    <br>
+                    <br>
+                    <input name="email" class="input_cadastrar input_cadastrar_email" type="text"
+                           placeholder="Email...">
+                    <br>
+                    <br>
+                    <input name="senha" class="input_cadastrar input_cadastrar_senha" type="password"
+                           placeholder="Senha...">
+                    <br>
+                    <input class="btn_cadastrar" type="submit" value="Cadastrar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}" type='text/css'>
+{% endblock %}
+{% block 'titulo' %}Home page{% endblock %}
+{% block 'body' %}
+<form action="" method="POST">{% csrf_token %}
+    <label>Imagens:</label><br>
+    <select name="imgs" id="imgs">
+        {% for img in imovel_dados.imagens.all.0.img.url %}
+            <option value="{{img}}">{{img}}</option>
+        {% endfor %}
+    </select>
+    <input class="form-control" type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+    <br>
+    <label>Valor</label>
+    <input type="number" name="valor" id="valor" class="form-control">
+    <br>
+    <label>Quartos</label>
+    <input type="number" name="Quartos" id="Quartos" class="form-control">
+    <br>
+    <label>Tamanho</label>
+    <input type="number" name="Tamanho" id="Tamanho" class="form-control">
+    <br>
+    <label>Cidade</label>
+    <input type="text" name="Cidade" id="Cidade" class="form-control">
+    <br>
+    <label>Rua</label>
+    <input type="text" name="Rua" id="Rua" class="form-control">
+    <br>
+    <label>Tipo</label>
+    <select name="horario" class="form-control">
+        <option value="Venda">Venda</option>
+        <option value="Aluguel">Aluguel</option>
+    </select>
+    <label>Dias</label>
+    <br>
+    <input type="datetime" name="dias" id="dias">
+    <br>
+    <label>Horários</label>
+    <select name="horario" class="form-control">
+        <option value="Venda">Venda</option>
+        <option value="Aluguel">Aluguel</option>
+    </select>
+    <br>
+    <input class="btn_agendar" type="submit" value="Salvar">
+</form>
+{% endblock %}
