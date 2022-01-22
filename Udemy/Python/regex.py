@@ -121,3 +121,4 @@ print(re.findall(r'\d+\.(?<=111\.)\d+\.\d+-\d+\s+\w+', cpfs, flags=re.S))
 # negative lookbehind
 # lookeahead e lookbehind
 print(re.findall(r'\d+\.(?<!111\.)\d+\.\d+-\d+\s+\w+', cpfs, flags=re.S))
+regex = re.compile(r"""""", flags=re.VERBOSE)  # permite cometar na expressão
