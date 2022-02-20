@@ -1,0 +1,13 @@
+Passe como segundo parâmetro de string 'a' , isso diz que você está abrindo o arquivo para atualizá-lo.
+
+O segundo parâmetro da função opené uma string que indica como o arquivo deve ser aberto, o mais comum é usar wque serve para escrita, truncando o arquivo, caso ele já exista, rpara leitura do arquivo e aque serve para adicionar conteúdo ao arquivo.
+
+Existem também os modos r+, w+e a+. Todos eles abrem o arquivo para leitura e escrita .
+
+r+: abre o arquivo para leitura e escrita. O stream é posicionado no início do arquivo.
+
+w+: abre o arquivo para leitura e escrita. O stream é posicionado no início do arquivo e o arquivo criado caso não exista.
+
+a+: abre o arquivo para leitura e escrita. O arquivo será criado caso não exista e o stream é posicionado no final do arquivo.
+
+Seria legal também fazer uso do with.
