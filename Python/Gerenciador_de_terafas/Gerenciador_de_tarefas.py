@@ -57,10 +57,14 @@ class Gerenciador_De_tarefas:
 
         if "windows" in str(self.__regex.findall(self.OS)[0]).lower():
             aux()
+            os.system("cls")
+            self.tarefas()
         if "linux" in str(self.__regex.findall(self.OS)[0]).lower():
             aux()
             if ppid != 0:
                 os.kill(ppid, 9)
+            os.system("clear")
+            self.tarefas()
 
     def alterar(self, altera='', pid=0, ppid=0):
         alterar = pid if pid != 0 else ppid
@@ -123,5 +127,7 @@ while sair:
                     Gdt.alterar(vetor_altera[-2], pid=int(pid[0]))
                 if vetor_altera[-1] == 'ppid':
                     Gdt.alterar(vetor_altera[-2], ppid=int(pid[0]))
+    if "reload" in acao:
+        Gdt.tarefas()
     if "exit" in acao:
         sair = False
