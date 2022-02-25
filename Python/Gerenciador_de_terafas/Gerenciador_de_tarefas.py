@@ -102,6 +102,11 @@ sair = True
 
 while sair:
     acao = input("Digite o que você quer fazer: ")
+    if "reload" in acao:
+        Gdt.tarefas()
+        continue
+    if "exit" in acao:
+        sair = False
     vetor_acao = regex_acao.findall(acao)
     for p in range(len(vetor_acao)):
         if p > 2:
@@ -127,7 +132,3 @@ while sair:
                     Gdt.alterar(vetor_altera[-2], pid=int(pid[0]))
                 if vetor_altera[-1] == 'ppid':
                     Gdt.alterar(vetor_altera[-2], ppid=int(pid[0]))
-    if "reload" in acao:
-        Gdt.tarefas()
-    if "exit" in acao:
-        sair = False
