@@ -3,9 +3,11 @@ from copy import deepcopy
 
 procurar = ''
 saida = []
-dirs = os.listdir(os.path.join("C:", "\\", "Users", "\\", f"{os.getlogin()}", '\\', "Downloads"))
+user = os.getlogin()
+dirs = os.listdir(os.path.join("C:", "\\", "Users", "\\"))
+print(dirs)
 dirs_aux = deepcopy(dirs)
-sair = True
+sair = False
 
 while sair:
     for path in dirs:
