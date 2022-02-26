@@ -1,5 +1,5 @@
 def mod(a=0, b=0):
-    if a / b is int:
+    if a == 0 or b == 1 or a == b:  # ou a / b is int
         return 0
     elif a < b:
         return a
@@ -8,4 +8,4 @@ def mod(a=0, b=0):
         return mod(a, b)
 
 
-print(mod(9, 4))
+print(mod(10, 4))
