@@ -73,7 +73,7 @@ class Gerenciador_De_tarefas:
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                 else:
                     self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
-                self.__tela += f'{"-" * (self.tamanho - 1)}'
+            self.__tela += f'{"-" * (self.tamanho - 1)}'
         print(self.__tela)
         self.tabela_resumida = None
 
