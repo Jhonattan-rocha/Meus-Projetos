@@ -23,19 +23,19 @@ class Gerenciador_De_tarefas:
                 if infos['memory_percent'] is None:
                     infos["memory_percent"] = "0"
                 if infos['nice'] is None:
-                    infos["nice"] = "undefined"
+                    infos["nice"] = "max"
                 if self.tabela_resumida is not None:
                     if resumo[1].lower() == "nome":
                         if resumo[2] in infos['name']:
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                     elif resumo[1].lower() == "pid":
-                        if resumo[2] in infos["pid"]:
+                        if resumo[2] in str(infos["pid"]):
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                     elif resumo[1].lower() == "status":
                         if resumo[2] in infos["status"]:
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
-                    elif resumo[1].lower() == "nice":
-                        if resumo[2] in infos["nice"]:
+                    elif resumo[1].lower() == "prioridade":
+                        if resumo[2] in str(infos["nice"]):
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                     elif resumo[1].lower() == "username":
                         if resumo[2] in infos["username"]:
@@ -54,19 +54,22 @@ class Gerenciador_De_tarefas:
                 if infos['memory_percent'] is None:
                     infos["memory_percent"] = "0"
                 if infos['nice'] is None:
-                    infos["nice"] = "undefined"
+                    infos["nice"] = "max"
                 if self.tabela_resumida is not None:
                     if resumo[1].lower() == "nome":
                         if resumo[2] in infos['name']:
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                     elif resumo[1].lower() == "pid":
-                        if resumo[2] in infos["pid"]:
+                        if resumo[2] in str(infos["pid"]):
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "ppid":
+                        if resumo[2] in str(infos["ppid"]):
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                     elif resumo[1].lower() == "status":
                         if resumo[2] in infos["status"]:
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
-                    elif resumo[1].lower() == "nice":
-                        if resumo[2] in infos["nice"]:
+                    elif resumo[1].lower() == "prioridade":
+                        if resumo[2] in str(infos["nice"]):
                             self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
                     elif resumo[1].lower() == "username":
                         if resumo[2] in infos["username"]:
@@ -149,28 +152,34 @@ while sair:
         continue
     if "exit" in acao:
         sair = False
-    vetor_acao = regex_acao.findall(acao)
-    for p in range(len(vetor_acao)):
-        if p > 2:
-            vetor_acao.pop()
-    vetor_retorno = regex_retorno.findall(acao)[0]
-    for palavra in vetor_acao:
-        for _palavra in matar():
-            if palavra == _palavra:
-                if vetor_acao[-1] == 'pid' and str(vetor_retorno).isnumeric():
-                    Gdt.matar_processo(pid=int(vetor_retorno))
-                if vetor_acao[-1] == 'ppid' and str(vetor_retorno).isnumeric():
-                    Gdt.matar_processo(ppid=int(vetor_retorno))
-                if vetor_acao[-1] == 'nome':
-                    Gdt.matar_processo(nome=vetor_retorno)
-    regex_altera = re.compile(r"[alterpiodmusbxcn]+")
-    regex_id = re.compile(r"[pid]+\s([0-9]+)")
-    vetor_altera = regex_altera.findall(acao)
-    pid = regex_id.findall(acao)
-    for palavra in vetor_altera:
-        for _palavra in alterar():
-            if palavra == _palavra:
-                if vetor_altera[-1] == 'pid':
-                    Gdt.alterar(vetor_altera[-2], pid=int(pid[0]))
-                if vetor_altera[-1] == 'ppid':
-                    Gdt.alterar(vetor_altera[-2], ppid=int(pid[0]))
+        continue
+    if acao != "" and "matar processo" in acao or "acabar" in acao or "parar" in acao:
+        vetor_acao = regex_acao.findall(acao)
+        for p in range(len(vetor_acao)):
+            if p > 2:
+                vetor_acao.pop()
+        vetor_retorno = regex_retorno.findall(acao)[0]
+        for palavra in vetor_acao:
+            for _palavra in matar():
+                if palavra == _palavra:
+                    if vetor_acao[-1] == 'pid' and str(vetor_retorno).isnumeric():
+                        Gdt.matar_processo(pid=int(vetor_retorno))
+                    if vetor_acao[-1] == 'ppid' and str(vetor_retorno).isnumeric():
+                        Gdt.matar_processo(ppid=int(vetor_retorno))
+                    if vetor_acao[-1] == 'nome':
+                        Gdt.matar_processo(nome=vetor_retorno)
+                    acao = ""
+        continue
+    if acao != "" and "alterar processo" in acao:
+        regex_altera = re.compile(r"[alterpiodmusbxcn]+")
+        regex_id = re.compile(r"[pid]+\s([0-9]+)")
+        vetor_altera = regex_altera.findall(acao)
+        pid = regex_id.findall(acao)
+        for palavra in vetor_altera:
+            for _palavra in alterar():
+                if palavra == _palavra:
+                    if vetor_altera[-1] == 'pid':
+                        Gdt.alterar(vetor_altera[-2], pid=int(pid[0]))
+                    if vetor_altera[-1] == 'ppid':
+                        Gdt.alterar(vetor_altera[-2], ppid=int(pid[0]))
+                    acao = ""
