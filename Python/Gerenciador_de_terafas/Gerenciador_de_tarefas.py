@@ -9,6 +9,7 @@ class Gerenciador_De_tarefas:
         self.OS = platform.system()
         self.__tela = ""
         self.__regex = re.compile(r"[WindowsLux]+")
+        self.tabela_resumida = None
 
     def tarefas(self):
         if "windows" in str(self.__regex.findall(self.OS)[0]).lower():
@@ -23,7 +24,24 @@ class Gerenciador_De_tarefas:
                     infos["memory_percent"] = "0"
                 if infos['nice'] is None:
                     infos["nice"] = "undefined"
-                self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                if self.tabela_resumida is not None:
+                    if resumo[1].lower() == "nome":
+                        if resumo[2] in infos['name']:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "pid":
+                        if resumo[2] in infos["pid"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "status":
+                        if resumo[2] in infos["status"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "nice":
+                        if resumo[2] in infos["nice"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "username":
+                        if resumo[2] in infos["username"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                else:
+                    self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
             self.__tela += f'{"-" * (self.tamanho - 1)}'
         if "linux" in str(self.__regex.findall(self.OS)[0]).lower():
             self.__tela = f'|{"Nome":<30}{"PID":<20}{"PPID":<20}{"STATUS":<20}{"PRIORIDADE":<30}{"MEMÓRIA(em %)":<20}{"Usuário":<20}|\n'
@@ -37,9 +55,27 @@ class Gerenciador_De_tarefas:
                     infos["memory_percent"] = "0"
                 if infos['nice'] is None:
                     infos["nice"] = "undefined"
-                self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
-            self.__tela += f'{"-" * (self.tamanho - 1)}'
+                if self.tabela_resumida is not None:
+                    if resumo[1].lower() == "nome":
+                        if resumo[2] in infos['name']:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "pid":
+                        if resumo[2] in infos["pid"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "status":
+                        if resumo[2] in infos["status"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "nice":
+                        if resumo[2] in infos["nice"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                    elif resumo[1].lower() == "username":
+                        if resumo[2] in infos["username"]:
+                            self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                else:
+                    self.__tela += f'|{infos["name"]:<30}{infos["pid"]:<20}{infos["ppid"]:<20}{infos["status"]:<20}{infos["nice"]:<30}{round(float(infos["memory_percent"]), 2):<20}{infos["username"]:<20}|\n'
+                self.__tela += f'{"-" * (self.tamanho - 1)}'
         print(self.__tela)
+        self.tabela_resumida = None
 
     def matar_processo(self, nome=" ", pid=0, ppid=0):
         pids = []
@@ -97,11 +133,17 @@ Gdt = Gerenciador_De_tarefas()
 Gdt.tarefas()
 regex_acao = re.compile(r"[matrpocesbidn]+")
 regex_retorno = re.compile(r"[matrpocesbidn\s]+\s(\w+)")
+resumo = []
 
 sair = True
 
 while sair:
     acao = input("Digite o que você quer fazer: ")
+    if "resumo" in acao.lower():
+        Gdt.tabela_resumida = " "
+        resumo = list(acao.split(" "))
+        Gdt.tarefas()
+        continue
     if "reload" in acao:
         Gdt.tarefas()
         continue
