@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6084055d-d305-4b32-af21-f2f994f46eab" name="Changes" comment="Pequenas adaptações">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/localizar_arquivos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/localizar_arquivos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/dist/Localizar_arquivos.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/dist/localizar_arquivos_multiplataforma.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +46,7 @@
       <recent name="C:\Users\User\Documents\Mpgithub\Meus-Projetos\Python\Gerenciador_de_terafas" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.localizar_arquivos">
+  <component name="RunManager" selected="Python.localizar_arquivos_multiplataforma">
     <configuration name="Gerenciador_de_tarefas" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Meus-Projetos" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -154,8 +154,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.localizar_arquivos" />
         <item itemvalue="Python.localizar_arquivos_multiplataforma" />
+        <item itemvalue="Python.localizar_arquivos" />
         <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
@@ -232,7 +232,21 @@
       <option name="project" value="LOCAL" />
       <updated>1646010757073</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Pequenas adaptações">
+      <created>1646011151353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1646011151353</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Pequenas adaptações">
+      <created>1646011190021</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1646011190021</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
