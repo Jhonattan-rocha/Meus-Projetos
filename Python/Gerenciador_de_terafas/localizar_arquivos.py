@@ -39,13 +39,13 @@ class Localizar_aquivos:
         self.janelac.mainloop()
 
     @staticmethod
-    def procurar(procura='', unidade='C:', pasta=''):
+    def procurar(procura=''.lower(), unidade='C:'.lower(), pasta=''.lower()):
         if not pasta:
             pasta = str(join(f"{unidade}:", "\\"))
         caminhos = []
         for diretorio, subpastas, arquivos in walk(pasta):
             for arquivo in arquivos:
-                if procura in arquivo:
+                if procura.lower() in arquivo.lower():
                     caminhos.append(join(realpath(diretorio), arquivo))
         return caminhos
 
