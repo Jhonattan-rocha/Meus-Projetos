@@ -1,5 +1,7 @@
 import os
-from tkinter import Tk, Label, Entry, Button
+import tkinter
+from tkinter import Tk, Label, Entry, Button, Text
+from pyautogui import alert
 
 
 class Localizar_aquivos:
@@ -36,41 +38,40 @@ class Localizar_aquivos:
         self.janelac.mainloop()
 
     @staticmethod
-    def procurar(procura='', tipo='arquivo', unidade='C:', pasta=''):
+    def procurar(procura='', unidade='C:', pasta=''):
         if not pasta:
             pasta = str(os.path.join(f"{unidade}:", "\\"))
         caminhos = []
-        pastas = []
-        subpas = []
         for diretorio, subpastas, arquivos in os.walk(pasta):
-            if tipo == "pastas":
-                for pasta in diretorio:
-                    if procura in pasta:
-                        pastas.append(os.path.join(os.path.realpath(diretorio), pasta))
-            elif tipo == "subpastas":
-                for subpasta in subpastas:
-                    if procura in subpasta:
-                        subpas.append(os.path.join(os.path.realpath(diretorio), subpasta))
-            elif tipo == "arquivo":
-                for arquivo in arquivos:
-                    if procura in arquivo:
-                        caminhos.append(os.path.join(os.path.realpath(diretorio), arquivo))
-        return caminhos if tipo == "arquivo" else pastas if tipo == "pastas" else subpas
+            for arquivo in arquivos:
+                if procura in arquivo:
+                    caminhos.append(os.path.join(os.path.realpath(diretorio), arquivo))
+        return caminhos
 
     @staticmethod
     def tela_aviso(texto):
         janelac = Tk()
         janelac.title(f"Caminhos encontrados")
-        textoc = Label(janelac, text=f"{texto:-^100}".upper())
+        textoc = Text(janelac)
+        textoc.insert(tkinter.INSERT, texto)
         textoc.place(x=200, y=50, anchor="center")
-        janelac.geometry("400x400")
+        textoc.grid(column=1)
         janelac.resizable(0, 0)
+        janelac.geometry("500x500")
         janelac.mainloop()
 
 
 local = Localizar_aquivos()
 sair = True
 while sair:
-    procurar = local.chamar_valor("Digite o arquivo ou pasta que você quer procurar")
-    retorno = local.procurar(procura=procurar, pasta="C:\\Users\\User\\Desktop\\")
-    Localizar_aquivos.tela_aviso(retorno[0])
+    procurar = local.chamar_valor("Digite o arquivo que você quer procurar: ")
+    pasta = local.chamar_valor("Digite a pasta onde deseja procurar: ")
+    retorno = local.procurar(procura=procurar, pasta=pasta)
+    if len(retorno) == 0:
+        alert(text="Não foi encontrado o arquivo digitado", title="Error")
+        continue
+    else:
+        texto = ''
+        for i in [i for i in retorno]:
+            texto += i + "\n\n"
+        local.tela_aviso(texto)

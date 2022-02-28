@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6084055d-d305-4b32-af21-f2f994f46eab" name="Changes" comment="Implementação de validações e pequenas correções">
+    <list default="true" id="6084055d-d305-4b32-af21-f2f994f46eab" name="Changes" comment="Depois de pesquisas, implementei o método os.walk para ganhar desempenho e precisão.">
+      <change afterPath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/localizar_arquivos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python/Gerenciador_de_terafas/localizar_arquivos.py" afterDir="false" />
     </list>
@@ -39,7 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python/BotComPython/IA_Roxxane/ROXXANE4.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.localizar_arquivos">
     <configuration name="Gerenciador_de_tarefas" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -55,6 +56,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Python/Gerenciador_de_terafas/Gerenciador_de_tarefas.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Meus-Projetos" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Python/Gerenciador_de_terafas" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Python/Gerenciador_de_terafas/Test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,8 +130,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.localizar_arquivos" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.Gerenciador_de_tarefas" />
+        <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645980967034</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Depois de pesquisas, implementei o método os.walk para ganhar desempenho e precisão.">
+      <created>1645995284808</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1645995284808</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,22 +188,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="última função adicionada. Resumir a tabela por elemento que o usuário querer." />
     <MESSAGE value="Implementação de validações e pequenas correções" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementação de validações e pequenas correções" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Python/Gerenciador_de_terafas/Gerenciador_de_tarefas.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Python/Gerenciador_de_terafas/Gerenciador_de_tarefas.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Depois de pesquisas, implementei o método os.walk para ganhar desempenho e precisão." />
+    <option name="LAST_COMMIT_MESSAGE" value="Depois de pesquisas, implementei o método os.walk para ganhar desempenho e precisão." />
   </component>
 </project>
