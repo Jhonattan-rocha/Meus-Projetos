@@ -57,7 +57,7 @@ class Localizar_aquivos:
         textoc.place(x=200, y=50, anchor="center")
         textoc.grid(column=1)
         janelac.resizable(0, 0)
-        janelac.geometry("500x500")
+        janelac.geometry("655x400")
         janelac.mainloop()
 
 
@@ -65,7 +65,15 @@ local = Localizar_aquivos()
 sair = True
 while sair:
     procurar = local.chamar_valor("Digite o arquivo que você quer procurar: ")
+    if procurar == "exit":
+        exit(0)
+    if str(procurar).strip() == "":
+        alert(text="Digite algo", title="Error")
+        continue
     pasta = local.chamar_valor("Digite a pasta onde deseja procurar: ")
+    if str(pasta).strip() == "":
+        alert(text="Digite algo", title="Error")
+        continue
     retorno = local.procurar(procura=procurar, pasta=pasta)
     if len(retorno) == 0:
         alert(text="Não foi encontrado o arquivo digitado", title="Error")

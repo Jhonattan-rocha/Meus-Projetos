@@ -1,5 +1,7 @@
-import os
 import subprocess
 import sys
 
-subprocess.run([sys.executable, "Gerenciador_de_tarefas.py"])
+result = subprocess.run(
+    [sys.executable, f"InitProcess.java {'notepad'}"], capture_output=True, text=True
+)
+print(result)
