@@ -1,6 +1,7 @@
-import os
-import tkinter
-from tkinter import Tk, Label, Entry, Button, Text
+from os import walk
+from sys import exit as ex
+from os.path import join, realpath
+from tkinter import Tk, Label, Entry, Button, Text, INSERT
 from pyautogui import alert
 
 
@@ -40,12 +41,12 @@ class Localizar_aquivos:
     @staticmethod
     def procurar(procura='', unidade='C:', pasta=''):
         if not pasta:
-            pasta = str(os.path.join(f"{unidade}:", "\\"))
+            pasta = str(join(f"{unidade}:", "\\"))
         caminhos = []
-        for diretorio, subpastas, arquivos in os.walk(pasta):
+        for diretorio, subpastas, arquivos in walk(pasta):
             for arquivo in arquivos:
                 if procura in arquivo:
-                    caminhos.append(os.path.join(os.path.realpath(diretorio), arquivo))
+                    caminhos.append(join(realpath(diretorio), arquivo))
         return caminhos
 
     @staticmethod
@@ -53,7 +54,7 @@ class Localizar_aquivos:
         janelac = Tk()
         janelac.title(f"Caminhos encontrados")
         textoc = Text(janelac)
-        textoc.insert(tkinter.INSERT, texto)
+        textoc.insert(INSERT, texto)
         textoc.place(x=200, y=50, anchor="center")
         textoc.grid(column=1)
         janelac.resizable(0, 0)
@@ -65,15 +66,12 @@ local = Localizar_aquivos()
 sair = True
 while sair:
     procurar = local.chamar_valor("Digite o arquivo que você quer procurar: ")
-    if procurar == "exit":
-        exit(0)
+    if str(procurar).strip() == "exit":
+        ex(0)
     if str(procurar).strip() == "":
         alert(text="Digite algo", title="Error")
         continue
     pasta = local.chamar_valor("Digite a pasta onde deseja procurar: ")
-    if str(pasta).strip() == "":
-        alert(text="Digite algo", title="Error")
-        continue
     retorno = local.procurar(procura=procurar, pasta=pasta)
     if len(retorno) == 0:
         alert(text="Não foi encontrado o arquivo digitado", title="Error")
