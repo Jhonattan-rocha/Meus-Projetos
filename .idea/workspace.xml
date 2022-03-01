@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6084055d-d305-4b32-af21-f2f994f46eab" name="Changes" comment="Pequenas adaptações">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExerciciosDeSO/AtividadeProcesso/Controller/RedesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExerciciosDeSO/AtividadeProcesso/Controller/RedesController.java" afterDir="false" />
-    </list>
+    <list default="true" id="6084055d-d305-4b32-af21-f2f994f46eab" name="Changes" comment="Correções feitas por falta de atenção..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646087265115</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Correções feitas por falta de atenção...">
+      <created>1646172151203</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1646172151203</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,6 +272,7 @@
     <MESSAGE value="Executável do Localizador" />
     <MESSAGE value="Pequenas mudanças" />
     <MESSAGE value="Pequenas adaptações" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequenas adaptações" />
+    <MESSAGE value="Correções feitas por falta de atenção..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Correções feitas por falta de atenção..." />
   </component>
 </project>
