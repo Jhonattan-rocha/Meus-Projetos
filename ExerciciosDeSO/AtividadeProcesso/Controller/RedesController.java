@@ -29,9 +29,9 @@ public class RedesController {
                 if (linha.contains("Adaptador Ethernet")) {
                     linha1 = linha;
                 }
-                if sistema.contains("Linux"){
-                    if linha.contains("flags"){
-                        linha1 = linha
+                if (sistema.contains("Linux")){
+                    if (linha.contains("flags")){
+                        linha1 = linha;
                     }
                 }
                 if (linha.contains("IPv4")){
@@ -46,8 +46,8 @@ public class RedesController {
                         }
                     }
                 }
-                if sistema.contains("Linux"){
-                    if linha.contains("inet"){
+                if (sistema.contains("Linux")){
+                    if (linha.contains("inet")){
                         String[] vetor = linha.split(" ");
                         int len = vetor.length;
                         for (int i = 0; i < len; i++) {
