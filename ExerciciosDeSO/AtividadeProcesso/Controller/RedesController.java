@@ -14,19 +14,16 @@ public class RedesController {
             String sistema = os();
             Process processo = null;
             if (sistema.contains("Windows")){
-                processo = Runtime.getRuntime().exec("IPCONFIG");
+                processo = Runtime.getRuntime().exec("ipconfig");
             }
             if (sistema.contains("Linux") || sistema.contains("linux")){
-                processo = Runtime.getRuntime().exec("IFCONFIG");
+                processo = Runtime.getRuntime().exec("ifconfig");
             }
             assert processo != null;
             InputStream inputStream = processo.getInputStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String linha = bufferedReader.readLine();
-            linha = bufferedReader.readLine();
-            linha = bufferedReader.readLine();
-            linha = bufferedReader.readLine();
             String linha1 = " ", linha2 = " ";
             while (linha != null) {
                 if (linha.contains("Adaptador Ethernet")) {
