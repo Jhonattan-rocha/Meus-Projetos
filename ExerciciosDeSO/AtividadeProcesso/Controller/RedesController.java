@@ -32,6 +32,11 @@ public class RedesController {
                 if (linha.contains("Adaptador Ethernet")) {
                     linha1 = linha;
                 }
+                if sistema.contains("Linux"){
+                    if linha.contains("flags"){
+                        linha1 = linha
+                    }
+                }
                 if (linha.contains("IPv4")){
                     String[] vetor = linha.split(" ");
                     int len = vetor.length;
@@ -41,6 +46,17 @@ public class RedesController {
                         }
                         if (vetor[i].contains(":")) {
                             linha2 += " " + vetor[i+1];
+                        }
+                    }
+                }
+                if sistema.contains("Linux"){
+                    if linha.contains("inet"){
+                        String[] vetor = linha.split(" ");
+                        int len = vetor.length;
+                        for (int i = 0; i < len; i++) {
+                            if (vetor[i].contains("inet")) {
+                                linha2 = vetor[i] + ": " + vetor[i+1];
+                            }
                         }
                     }
                 }
