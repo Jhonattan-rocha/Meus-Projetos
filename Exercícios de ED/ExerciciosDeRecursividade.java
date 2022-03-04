@@ -6,7 +6,7 @@ public class ExerciciosDeRecursividade {
         System.out.println(palindromo(("Amor a Roma".toLowerCase()).split("")));
         System.out.println(palindromo(("Amor".toLowerCase()).split("")));
         System.out.println(Arrays.toString(menorValor(new int[]{5, 4, 1, 3, 2})));
-        System.out.println(somaIntervalo(0, 6));
+        System.out.println(somaIntervalo(7, 6));
         System.out.println(multi_soma(10, 10));
     }
     public static int[] menorValor(int[] vetor) {
