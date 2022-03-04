@@ -47,7 +47,7 @@ public class RedesController {
                     }
                 }
                 if (sistema.contains("Linux")){
-                    if (linha.contains("inet")){
+                    if (linha.contains("inet ")){
                         String[] vetor = linha.split(" ");
                         int len = vetor.length;
                         for (int i = 0; i < len; i++) {
