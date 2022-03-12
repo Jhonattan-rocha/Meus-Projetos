@@ -1,3 +1,4 @@
+import os
 import subprocess
 from os import walk
 from sys import exit as ex
@@ -47,6 +48,7 @@ class Localizar_aquivos:
         for diretorio, subpastas, arquivos in walk(pasta):
             for arquivo in arquivos:
                 if procura.lower() in arquivo.lower():
+                    arquivo = f'"{arquivo}"'
                     caminhos.append(join(realpath(diretorio), arquivo))
         return caminhos
 
@@ -79,11 +81,11 @@ while sair:
         continue
     else:
         texto = ''
-        for i in [i for i in retorno]:
-            texto += i + "\n\n"
-        local.tela_aviso(texto)
         try:
             for i in retorno:
-                subprocess.run(f"{i}")
+                os.system(fr"{i}")
+            for i in [i for i in retorno]:
+                texto += i + "\n\n"
+            local.tela_aviso(texto.replace('"', ""))
         except:
             local.tela_aviso("Algum caminho encontrado não foi executado corretamente")
