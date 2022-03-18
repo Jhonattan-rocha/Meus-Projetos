@@ -99,4 +99,3 @@ for i in range(0, 999):
 # t2 = ThreadVetor(1, vetor)
 # t1.start()
 # t2.start()
-

@@ -8,7 +8,6 @@ colocados = []
 class Sapo(threading.Thread):
     def __init__(self, dist=20, ids=randint(1, 10)):
         threading.Thread.__init__(self)
-        self.velociade = round(random(), 4)
         self.idente = ids
         self.dist = dist
         self.pulo = randint(1, 5)
@@ -20,7 +19,6 @@ class Sapo(threading.Thread):
             distancia += self.pulo
             if distancia >= self.dist:
                 colocados.append(self.idente)
-                print(colocados)
                 return
             print(f"Pulou {self.pulo} metro, percorreu até o momento {distancia} metros")
 

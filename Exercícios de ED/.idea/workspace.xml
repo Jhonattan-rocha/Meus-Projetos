@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdfdfdb4-fc8b-4458-bef0-c6e4717775e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/exerciciosEmPython.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/exer4.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/exer4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ExerciciosDeSO/exerciciosEmPython/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExerciciosDeRecursividade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/divisao_com_sub.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mod_com_recursividade.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python/Gerenciador_de_terafas/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Python/Gerenciador_de_terafas/Test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -40,5 +39,28 @@
       <updated>1647117744876</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
