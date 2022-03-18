@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
 import java.util.Random;
 
 public class Exers {
@@ -9,111 +8,40 @@ public class Exers {
 	public static ArrayList<String> ListaNomes = new ArrayList<>();
 
 	public static void main(String[] args) {
-		System.out.println("Primeiro teste");
-		int[] vetor = criarVetor(10);
-		Comparable[] vetor2 = criarVetor2(10);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		Lista = new ArrayList<>();
-		ListaNomes = new ArrayList<>();
-
-		System.out.println("Segundo teste");
-		vetor = criarVetor(100);
-		vetor2 = criarVetor2(100);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		Lista = new ArrayList<>();
-		ListaNomes = new ArrayList<>();
-		
-		System.out.println("Terceiro teste");
-		vetor = criarVetor(1000);
-		vetor2 = criarVetor2(1000);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		Lista = new ArrayList<>();
-		ListaNomes = new ArrayList<>();
-		
-		System.out.println("Quarto teste");
-		vetor = criarVetor(10000);
-		vetor2 = criarVetor2(10000);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		Lista = new ArrayList<>();
-		ListaNomes = new ArrayList<>();
-		
-		System.out.println("Quinto teste");
-		vetor = criarVetor(500000);
-		vetor2 = criarVetor2(500000);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		Lista = new ArrayList<>();
-		ListaNomes = new ArrayList<>();
-
-		System.out.println("Sexto teste");
-		vetor = criarVetor(100000);
-		vetor2 = criarVetor2(100000);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		Lista = new ArrayList<>();
-		ListaNomes = new ArrayList<>();
-		
-		System.out.println("Setimo teste");
-		vetor = criarVetor(200000);
-		vetor2 = criarVetor2(200000);
-		insertionSort(vetor);
-		bubblesort(vetor);
-		selectionSort(vetor);
-		mergeSort(vetor2);
-		quickSorte(vetor);
-		
-		System.out.println("Tempos: ");
-		System.out.println(Lista);
-		System.out.println(ListaNomes);
-		
+		testes(10);
+		testes(100);
+		testes(1000);
+		testes(10000);
+		testes(500000);
+		testes(200000);
+		testes(100000);
 	}
-	
+	public static void testes(int indice){
+		System.out.println("teste com vetor de " + indice + " indices: ");
+		System.out.println();
+		int[] vetor = criarVetor(indice);
+		Comparable[] vetor2 = criarVetor2(indice);
+		insertionSort(vetor);
+		bubblesort(vetor);
+		selectionSort(vetor);
+		mergeSort(vetor2);
+		quickSorte(vetor);
+
+		ArrayList<Long> aux = (ArrayList<Long>) Lista.clone();
+		ArrayList<String> aux2 = new ArrayList<>();
+		Collections.sort(Lista);
+		for (long i = 0L; i < aux.size(); i++) {
+			aux2.add(ListaNomes.get(Lista.indexOf(aux.get((int) i))));
+		}
+		System.out.println("Ordem crescem do desempenho dos métodos: ");
+		System.out.println(aux2);
+		System.out.println(Lista);
+		System.out.println();
+		System.out.println("Vencedor: " + aux2.get(0));
+		Lista = new ArrayList<>();
+		ListaNomes = new ArrayList<>();
+		System.out.println();
+	}
 	
 	public static int[] criarVetor(int tamanhoVetor) {
         Random random = new Random();
