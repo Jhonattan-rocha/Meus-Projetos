@@ -15,16 +15,20 @@ class CLiente(threading.Thread):
         self.semaforo = threading.Semaphore(1)
 
     def run(self) -> None:
+        passe = random.randint(1,2)
         try:
-            self.cliente.cadastrar_pounpanca(agencia=1111, conta=self.conta)
-            self.semaforo.acquire()
-            self.cliente.conta_poupanca.depoistar(self.valor)
-            print(f"Cliente {self.native_id} depositou {self.valor} conto")
-            self.semaforo.release()
-            self.semaforo.acquire()
-            self.cliente.conta_poupanca.sacar(self.valor)
-            print(f"Cliente {self.native_id} sacou {self.valor} conto")
-            self.semaforo.release()
+            if passe == 1:
+                self.cliente.cadastrar_pounpanca(agencia=1111, conta=self.conta)
+                self.semaforo.acquire()
+                self.cliente.conta_poupanca.depoistar(self.valor)
+                print(f"Cliente {self.native_id} depositou {self.valor} conto")
+                self.semaforo.release()
+            if passe == 2:
+                self.cliente.cadastrar_pounpanca(agencia=1111, conta=self.conta)
+                self.semaforo.acquire()
+                self.cliente.conta_poupanca.sacar(self.valor)
+                print(f"Cliente {self.native_id} sacou {self.valor} conto")
+                self.semaforo.release()
         except Exception as e:
             print(e)
         finally:
